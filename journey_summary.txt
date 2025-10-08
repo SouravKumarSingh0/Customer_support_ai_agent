@@ -1,0 +1,65 @@
+## Customer Journey Report: Application ID 3044
+
+### 1. Executive Summary
+
+*   **Main Issue/Goal:** The customer, with Application ID 3044 and phone number 9814760602, is attempting to complete their onboarding for a financial product. Progress is blocked by recurring issues with document quality and validity, specifically the NACH mandate and address proof, leading to repeated rejections from the partner.
+*   **Current Status:** The customer's application is currently blocked at the partner verification stage, awaiting submission of a valid NACH mandate and a recent electricity bill. This issue has persisted since at least February 2023, following an unexplained ~2-year delay after initial internal approvals.
+*   **Critical Next Action:** Customer Support must contact the customer to clearly explain the specific document deficiencies and guide them through re-uploading a clear NACH mandate and a current electricity bill.
+
+### 2. Customer Journey Narrative
+
+The customer initiated their onboarding journey on October 9, 2020, with an initial document upload in November 2020. After a period of inactivity, they actively engaged in January and February 2021, repeatedly selecting offers, updating their personal KYC, and uploading bank details, cheques, and NACH mandates. By March 5, 2021, the application was marked "ready_for_ops," and subsequently received "nbfc_approved" and "ops_approved" statuses by April 8, 2021. This indicated successful internal processing.
+
+However, a significant and unexplained gap of nearly two years followed. The application resurfaced in February 2023 with a partner comment stating "KYC documents are not uploaded," directly contradicting the previous "ops_approved" status. This marked the beginning of a series of rejections from the partner, citing issues such as an unclear signature on the NACH mandate in August 2023, a request to submit a loan agreement and an outdated electricity bill in November 2023, and finally, an "Invalid Image- Nach Mandate" in December 2023. The customer is currently stuck in a loop of document rejections, unable to progress due to persistent quality and validity concerns raised by the partner.
+
+### 3. Detailed Timeline
+
+*   `2023-12-27T10:21:09Z` · **PartnerDB** · Invalid Image- Nach Mandate
+*   `2023-11-28T07:36:08Z` · **PartnerDB** · Electricity bill more than 3 months old. Please provide latest electricity bill
+*   `2023-11-28T07:33:59Z` · **PartnerDB** · Submit loan agreement on Muthoot & AEFPL
+*   `2023-08-08T10:16:15Z` · **PartnerDB** · Signature not clear on nach mandate
+*   `2023-02-27T09:26:34Z` · **PartnerDB** · KYC documents are not uploaded
+*   `2021-04-08T05:12:55Z` · **Onboarding** · Stage: ops_approved
+*   `2021-04-07T14:03:49Z` · **Onboarding** · Stage: nbfc_approved
+*   `2021-03-05T08:19:14Z` · **Onboarding** · Stage: approved_for_submission · ready_for_ops
+*   `2021-03-05T08:19:00Z` · **Onboarding** · Stage: approved_for_submission · nach_uploaded
+*   `2021-03-05T08:17:22Z` · **Onboarding** · Stage: approved_for_submission · nach_downloaded
+*   `2021-03-05T08:17:18Z` · **Onboarding** · Stage: approved_for_submission · document_uploaded
+*   `2021-03-05T08:17:10Z` · **Onboarding** · Stage: approved_for_submission · bank_details_updated
+*   `2021-03-05T08:17:07Z` · **Onboarding** · Stage: approved_for_submission · personal_kyc_updated
+*   `2021-03-05T08:17:03Z` · **Onboarding** · Stage: approved_for_submission · offer_selected
+*   `2020-10-09T07:51:51Z` · **Onboarding** · Stage: in_progress · initiated
+
+### 4. Onboarding Journey Analysis
+
+*   **Stage Breakdown:**
+    *   **Initial Application & Document Upload:** `2020-10-09T07:51:51Z` to `2020-11-21T10:49:00Z` (approx. 1 month, 12 days). Status: Completed.
+    *   **KYC, Offer Selection & NACH Submission:** `2021-01-28T08:38:32Z` to `2021-03-05T08:19:14Z` (approx. 1 month, 5 days). Status: Completed (reached ready_for_ops).
+    *   **Internal & NBFC Approval:** `2021-03-05T08:19:14Z` to `2021-04-08T05:12:55Z` (approx. 1 month, 3 days). Status: Completed.
+    *   **Partner Verification & Rejection Loop:** `2023-02-27T09:26:34Z` to `2023-12-27T10:21:09Z` (approx. 10 months). Status: Blocked.
+
+*   **Longest Delay:** The single biggest delay occurred between the internal "ops_approved" status on `2021-04-08T05:12:55Z` and the first partner rejection comment "KYC documents are not uploaded" on `2023-02-27T09:26:34Z`. This delay spans approximately **1 year, 10 months, and 19 days**. The likely cause is unclear from the available data but suggests either a significant delay in partner processing, a re-evaluation of the application, or a breakdown in the handoff process.
+
+*   **Bottlenecks:** The most significant bottleneck is the prolonged period of partner verification and subsequent rejections, which has lasted for over 10 months (February to December 2023). This delay is primarily due to recurring issues with the quality and validity of customer-submitted documents (NACH mandate, address proof). While the initial submission was completed by the customer, the repeated rejections indicate a breakdown in the clarity of requirements or the customer's ability to meet them, leading to a prolonged internal process for the partner.
+
+### 5. Internal Conversations & Context
+
+*   **Remarks Summary:** All available remarks originate from the "PartnerDB" and consistently highlight document-related deficiencies. These remarks indicate a negative sentiment towards the submitted documents, leading to rejections.
+    *   `2023-02-27`: "KYC documents are not uploaded" (General rejection, high urgency as it implies a fundamental missing piece).
+    *   `2023-08-08`: "Signature not clear on nach mandate" (Specific clarity issue, high urgency for resolution).
+    *   `2023-11-28`: "Submit loan agreement on Muthoot & AEFPL" (Action required, medium urgency).
+    *   `2023-11-28`: "Electricity bill more than 3 months old. Please provide latest electricity bill" (Validity issue, high urgency for a new document).
+    *   `2023-12-27`: "Invalid Image- Nach Mandate" (Critical issue, implies the document is unusable).
+*   **Agent/Team Involvement:** The provided data only indicates "PartnerDB" as the source of these comments. No specific internal agents or teams are named as having interacted with the customer or the partner regarding these issues.
+
+### 6. Root Cause & Recommendations
+
+*   **Root Cause Analysis:** The primary root cause for the customer's stalled journey is a **persistent failure to provide valid and clear documents that meet partner requirements**, specifically concerning the NACH mandate (unclear signature, invalid image) and address proof (outdated electricity bill). This has led to repeated rejections and a significant delay. A secondary root cause is the **unexplained ~2-year gap** between internal "ops_approved" status and the first partner rejection, suggesting a potential process breakdown, re-evaluation, or a lack of timely communication/handoff. The impact is a loss of over 2 years in onboarding time for the customer.
+
+*   **Actionable Next Steps:**
+    1.  **CRITICAL · Owner: Customer Support**
+        *   Contact the customer (9814760602) immediately. Clearly explain the specific reasons for the latest rejections (invalid NACH image, outdated electricity bill). Guide them step-by-step on how to obtain and upload correct, clear, and valid documents.
+    2.  **HIGH · Owner: Product/Content Team**
+        *   Review and update the document upload instructions for NACH mandates and address proofs, providing clear examples of acceptable and unacceptable submissions to prevent future rejections.
+    3.  **MEDIUM · Owner: Operations/Process Improvement**
+        *   Investigate the ~2-year delay between the "ops_approved" status (2021-04-08) and the first partner rejection (2023-02-27). Determine if

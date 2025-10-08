@@ -1,300 +1,113 @@
-# 🤖 Customer Support Agent (CSA)
+Slack Customer Discussion Summarizer
 
-> An AI-powered orchestration tool that unifies customer data from multiple sources — Slack, Tele-Calling Databricks, Partner Dashboard, Freshdesk, and Onboarding — into clean summaries, CSV reports, and concise Gemini-based narratives.
+A Python-based agent that searches Slack discussions related to a customer (by Application ID, Phone Number, or Email) and generates a factual, concise summary using Google Gemini.
 
----
+🚀 Features
 
-## 🚀 Installation Guide (Step-by-Step)
+Multi-identifier search: Find customer discussions using App ID, phone, or email.
 
-> 🕐 Estimated setup time: ~5 minutes  
-> Works on macOS or Linux (Intel or Apple Silicon)
+Priority + deep search:
 
----
+First searches only the channels listed in .env (SLACK_CHANNELS).
 
-### 1️⃣ Prerequisites
+If nothing is found, prompts to search across all accessible channels.
 
-Make sure these are installed:
+Transcript builder: Fetches channel history and threaded replies, normalizes text, and builds a chronological transcript in IST.
 
-```bash
-python3 --version   # Python 3.11 or later
-pip3 --version
-git --version
-```
+AI summarization: Sends the transcript to Gemini (gemini-1.5-flash) and returns a professional, factual summary under 180 words.
 
-You’ll also need access to:
-- Databricks SQL Warehouse  
-- Google Gemini API key  
-- Slack bot token (optional)  
-- Internet connection  
+Debug utilities:
 
----
+list_all_channels() → list all channels the bot can access.
 
-### 2️⃣ Clone the repository
+join_specific_channel.py → utility script to manually join a public channel by name.
 
-```bash
-git clone <your-gitlab-repo-url> support-automation
-cd support-automation
-```
+📂 Project Structure
+project-root/
+│
+├── Slack.py                  # Main summarizer script
+├── join_specific_channel.py   # Utility to join a public channel
+├── .env                       # Environment variables (not committed)
+└── README.md                  # Project notes and usage
 
----
+⚙️ Setup
 
-### 3️⃣ Create and activate a virtual environment
+Clone repo
 
-```bash
+git clone <your-gitlab-url>
+cd project-root
+
+
+Create virtual environment
+
 python3 -m venv venv
-source venv/bin/activate      # macOS/Linux
-```
+source venv/bin/activate   # macOS/Linux
+venv\Scripts\activate      # Windows
 
-Check:
-```bash
-python -V
-pip -V
-```
 
----
+Install requirements
 
-### 4️⃣ Install dependencies
+pip install slack_sdk python-dotenv google-generativeai
 
-If you already have a `requirements.txt`:
-```bash
-pip install --upgrade pip
-pip install -r requirements.txt
-```
 
-Otherwise, install manually:
-```bash
-pip install --upgrade pip
-pip install python-dotenv databricks-sql-connector pandas google-generativeai slack_sdk rich tenacity
-```
+Environment variables (.env)
 
----
-
-### 5️⃣ Create a `.env` file
-
-Create a new file named `.env` in your project root and paste:
-
-```bash
-# --- Gemini (required) ---
-GEMINI_API_KEY=your_google_generative_ai_key
-GEMINI_MODEL=gemini-2.5-flash
-
-# --- Slack (optional) ---
 SLACK_BOT_TOKEN=xoxb-...
-SLACK_CHANNELS=support,critical-incidents
+GEMINI_API_KEY=your-gemini-api-key
+SLACK_CHANNELS=sales-product-support
 
-# --- Databricks (required) ---
-DATABRICKS_SERVER_HOSTNAME=adb-xxxxxxxx.azuredatabricks.net
-DATABRICKS_HTTP_PATH=/sql/1.0/warehouses/xxxxxxxxxxxxxxxx
-DATABRICKS_TOKEN=pat-xxxxxxxxxxxxxxxx
 
-# --- Email (optional) ---
-GMAIL_ENABLED=false
+SLACK_BOT_TOKEN: Slack bot token with scopes:
 
-# --- General ---
-LOG_LEVEL=INFO
-TZ=Asia/Kolkata
-```
+channels:read, groups:read, channels:join, conversations.history
 
-⚠️ **Do not commit this file.** It contains credentials.
+SLACK_CHANNELS: Comma-separated list of channel names or IDs to search first.
 
----
+GEMINI_API_KEY: Google Generative AI API key.
 
-### 6️⃣ Test your setup
+▶️ Usage
+Run the summarizer
+python Slack.py
 
-#### ✅ Databricks connection
-```bash
-python - <<'PY'
-from databricks import sql
-import os
-with sql.connect(
-    server_hostname=os.getenv("DATABRICKS_SERVER_HOSTNAME"),
-    http_path=os.getenv("DATABRICKS_HTTP_PATH"),
-    access_token=os.getenv("DATABRICKS_TOKEN")
-) as c:
-    with c.cursor() as cur:
-        cur.execute("SELECT 1")
-        print("Databricks OK:", cur.fetchone())
-PY
-```
 
-#### ✅ Gemini
-```bash
-python - <<'PY'
-import os, google.generativeai as genai
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-m = os.getenv("GEMINI_MODEL","gemini-2.5-flash")
-r = genai.GenerativeModel(m).generate_content("ping")
-print("Gemini OK" if r else "Gemini failed")
-PY
-```
+You’ll be prompted to enter:
 
-#### ✅ Slack
-Invite your bot to channels:
-```
-/invite @YourBot
-```
+Days of history to search
 
----
+Application ID, Phone Number, or Email
 
-### 7️⃣ Run the Agent
+If discussions are found, Gemini generates a crisp summary.
 
-#### ▶️ Full orchestrator
-```bash
-python customer_journey_orchestrator.py
-```
-You can enter:
-- Application ID (press Enter if unknown)
-- Phone Number (press Enter if unknown)
+Join a channel (if bot not yet a member)
+python join_specific_channel.py
 
-#### 💬 NLP CLI
-```bash
-python NLP.py
-```
-or (if executable)
-```bash
-python Customer_Support_nlp
-```
 
-#### 🎟 Freshdesk module
-```bash
-python FreshDesk.py
-```
+Edit CHANNEL_TO_JOIN inside the script before running.
 
-**Generated files:**
-```
-journey_summary.csv
-journey_key_events.csv
-journey_summary.txt
-journey_bundle.json
-```
+📌 Notes & Learnings (so far)
 
----
+Channel membership matters: The bot must be a member of any channel to fetch history.
 
-## 🧱 Repository Overview
+Public → can be joined with channels:join scope.
 
-| File | Purpose |
-|------|----------|
-| `customer_journey_orchestrator.py` | Core orchestrator – merges data from all sources, calls Gemini, and generates outputs |
-| `Slack.py` / `slack_agent.py` | Reads messages from Slack support channels |
-| `TeleCalling_Databricks.py` | Fetches tele-calling remarks & dispositions |
-| `PartnerDB_Databrics.py` | Retrieves Partner Dashboard `application_comment` |
-| `FreshDesk.py` | Gets Freshdesk ticket info from Databricks |
-| `OnboardingTime.py` | Computes onboarding statuses and delays |
-| `Email.py` *(optional)* | Parses Gmail support threads |
-| `NLP.py` / `Customer_Support_nlp` | CLI for interactive customer queries |
+Private → must be invited manually.
 
----
+Archived → cannot fetch history until unarchived.
 
-## 🧠 System Architecture
+System messages: Joining a public channel posts a “Bot has joined the channel” message visible to all.
 
-```
-[SOURCES]
-  ├── Slack
-  ├── Tele-Calling DB (Databricks)
-  ├── Partner Dashboard (Databricks)
-  ├── Freshdesk (Databricks)
-  ├── Onboarding Timeline (Databricks)
-  └── Email (optional)
+Transcript limits: Long transcripts are truncated to the last ~18k characters to fit Gemini’s prompt size.
 
-[ADAPTERS]
-  ├── Slack.py
-  ├── TeleCalling_Databricks.py
-  ├── PartnerDB_Databrics.py
-  ├── FreshDesk.py
-  ├── OnboardingTime.py
-  └── Email.py
+Error handling:
 
-[ORCHESTRATOR]
-  └── customer_journey_orchestrator.py
+Handles Slack rate limits (429) with backoff.
 
-[INTELLIGENCE]
-  └── Gemini 2.5-flash (google-generativeai)
+Skips channels not found or inaccessible instead of crashing.
 
-[OUTPUTS]
-  ├── journey_summary.csv
-  ├── journey_key_events.csv
-  ├── journey_summary.txt
-  └── journey_bundle.json
-```
+Current workflow:
 
----
+Ensure bot is in relevant channels (use join_specific_channel.py).
 
-## ⚙️ How It Works
+Run Slack.py and provide App ID/Phone/Email.
 
-1. You provide **phone number**, **application ID**, or **email**.  
-2. The orchestrator resolves identifiers across all data sources.  
-3. Each adapter fetches data concurrently from its system.  
-4. All timestamps are converted to **IST (+05:30)**.  
-5. Gemini 2.5-flash summarizes the merged data into insights.  
-6. Results are written to CSV, TXT, and JSON outputs.
-
----
-
-## 📦 Logs & Ignored Files
-
-Add these entries to `.gitignore`:
-
-```
-# Generated reports
-journey_*.csv
-journey_summary.txt
-journey_bundle.json
-
-# Caches
-*.pkl
-slack_cache.pkl
-
-# Virtual environment
-venv/
-.env
-```
-
----
-
-## 🛠 Troubleshooting
-
-| Problem | Cause / Fix |
-|----------|-------------|
-| `python: command not found` | Use `python3` or activate your virtualenv: `source venv/bin/activate` |
-| Gemini model error | Verify `GEMINI_API_KEY` and model name in `.env` |
-| Databricks connection failed | Check hostname, HTTP path, and token in `.env` |
-| Slack data empty | Invite bot to channels using `/invite @YourBot` |
-| File won’t run | Use `python ./filename.py` or make it executable with `chmod +x` |
-
----
-
-## 🔒 Security Guidelines
-
-- Never commit `.env` or any file containing secrets.  
-- Mask sensitive PII (e.g., show `xxxxxx6497` instead of full number).  
-- Keep Databricks and Slack scopes minimal.  
-
----
-
-## 🧭 Roadmap
-
-- ✅ Multi-source orchestration  
-- ✅ Gemini summarization  
-- ✅ Interactive NLP CLI  
-- 🔜 Automated weekly “Top Issues” CSV  
-- 🔜 Slack `/journey <phone>` command  
-
----
-
-## ✅ Acceptance Criteria
-
-- Works with **only phone number** as input.  
-- Generates:
-  - `journey_summary.csv`
-  - `journey_key_events.csv`
-  - `journey_summary.txt`
-  - `journey_bundle.json`
-- All timestamps normalized to IST.  
-- Partial adapter failures don’t break execution.  
-- Cached runs execute faster.
-
----
-
-**Maintainer:** _Internal AI & Automation Team_  
-**Last updated:** October 2025  
-**License:** Internal Use Only
+Get a factual Gemini summary + transcript preview.

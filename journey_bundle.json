@@ -1,0 +1,559 @@
+{
+  "generated_at_utc": "2025-10-08T06:52:08.809284+00:00",
+  "identifiers": {
+    "app_id": "3044",
+    "phone": "9814760602",
+    "email": null
+  },
+  "slices": {
+    "Slack": {
+      "summary": "",
+      "events": [],
+      "meta": {
+        "error": ""
+      }
+    },
+    "Telecalling": {
+      "summary": "No telecalling records found",
+      "calls": []
+    },
+    "PartnerDB": {
+      "summary": "The customer has been attempting to activate their account since March 2021, but activation has been consistently delayed due to various issues with submitted documents. Past issues included incomplete/outdated bank statements, old electricity bills, security cheque discrepancies, missing Aadhaar XML, and CKYC failures. Currently, the account activation is pending as the Nach Mandate has an invalid image and an unclear signature. Additionally, a loan agreement for Muthoot & AEFPL needs to be submitted, and a latest electricity bill is required as the current one is over three months old. The customer's next step is to provide all outstanding and corrected documents.",
+      "comments": [
+        {
+          "id": 1878211,
+          "timestamp": "2023-12-27 10:21:09.656018",
+          "created_at": "2023-12-27 10:21:09.656018",
+          "time": "2023-12-27 10:21:09.656018",
+          "comment": "Invalid Image- Nach Mandate",
+          "application_comment": "Invalid Image- Nach Mandate",
+          "status": "new"
+        },
+        {
+          "id": 1877328,
+          "timestamp": "2023-11-28 07:36:08.632852",
+          "created_at": "2023-11-28 07:36:08.632852",
+          "time": "2023-11-28 07:36:08.632852",
+          "comment": "Electricity bill more than 3 months old. Please provide latest electricity bill",
+          "application_comment": "Electricity bill more than 3 months old. Please provide latest electricity bill",
+          "status": "new"
+        },
+        {
+          "id": 1877327,
+          "timestamp": "2023-11-28 07:33:59.074236",
+          "created_at": "2023-11-28 07:33:59.074236",
+          "time": "2023-11-28 07:33:59.074236",
+          "comment": "Submit loan agreement on Muthoot & AEFPL",
+          "application_comment": "Submit loan agreement on Muthoot & AEFPL",
+          "status": "new"
+        },
+        {
+          "id": 1868537,
+          "timestamp": "2023-08-08 10:16:15.122971",
+          "created_at": "2023-08-08 10:16:15.122971",
+          "time": "2023-08-08 10:16:15.122971",
+          "comment": "Signature not clear on nach mandate",
+          "application_comment": "Signature not clear on nach mandate",
+          "status": "resolved"
+        },
+        {
+          "id": 1830168,
+          "timestamp": "2023-02-27 09:26:34.319952",
+          "created_at": "2023-02-27 09:26:34.319952",
+          "time": "2023-02-27 09:26:34.319952",
+          "comment": "KYC documents are not uploaded",
+          "application_comment": "KYC documents are not uploaded",
+          "status": "new"
+        }
+      ]
+    },
+    "Onboarding": {
+      "summary": "A 15 hr 9 min delay occurred during onboarding, transitioning from nbfc_approved to ops_approved.",
+      "timeline": [
+        {
+          "at": "2020-10-05T05:07:36Z",
+          "time": "2020-10-05T05:07:36Z",
+          "timestamp": "2020-10-05T05:07:36Z",
+          "stage": "applied",
+          "status": "applied",
+          "substatus": "applied",
+          "prev_status": "ops_approved",
+          "prev_substatus": "ops_approved",
+          "transition": "ops_approved/ops_approved → applied/applied",
+          "gap_minutes": 323692.7166666667
+        },
+        {
+          "at": "2020-10-05T05:15:03Z",
+          "time": "2020-10-05T05:15:03Z",
+          "timestamp": "2020-10-05T05:15:03Z",
+          "stage": "in_progress",
+          "status": "in_progress",
+          "substatus": "initiated",
+          "prev_status": "applied",
+          "prev_substatus": "applied",
+          "transition": "applied/applied → in_progress/initiated",
+          "gap_minutes": 7.45
+        },
+        {
+          "at": "2020-10-05T05:15:18Z",
+          "time": "2020-10-05T05:15:18Z",
+          "timestamp": "2020-10-05T05:15:18Z",
+          "stage": "in_progress",
+          "status": "in_progress",
+          "substatus": "marketplace_document_uploaded",
+          "prev_status": "in_progress",
+          "prev_substatus": "initiated",
+          "transition": "in_progress/initiated → in_progress/marketplace_document_uploaded",
+          "gap_minutes": 0.25
+        },
+        {
+          "at": "2020-10-09T07:51:51Z",
+          "time": "2020-10-09T07:51:51Z",
+          "timestamp": "2020-10-09T07:51:51Z",
+          "stage": "in_progress",
+          "status": "in_progress",
+          "substatus": "initiated",
+          "prev_status": "in_progress",
+          "prev_substatus": "marketplace_document_uploaded",
+          "transition": "in_progress/marketplace_document_uploaded → in_progress/initiated",
+          "gap_minutes": 5916.55
+        },
+        {
+          "at": "2020-11-21T10:43:25Z",
+          "time": "2020-11-21T10:43:25Z",
+          "timestamp": "2020-11-21T10:43:25Z",
+          "stage": "in_progress",
+          "status": "in_progress",
+          "substatus": "marketplace_document_uploaded",
+          "prev_status": "in_progress",
+          "prev_substatus": "initiated",
+          "transition": "in_progress/initiated → in_progress/marketplace_document_uploaded",
+          "gap_minutes": 62091.566666666666
+        },
+        {
+          "at": "2020-11-21T10:48:45Z",
+          "time": "2020-11-21T10:48:45Z",
+          "timestamp": "2020-11-21T10:48:45Z",
+          "stage": "in_progress",
+          "status": "in_progress",
+          "substatus": "initiated",
+          "prev_status": "in_progress",
+          "prev_substatus": "marketplace_document_uploaded",
+          "transition": "in_progress/marketplace_document_uploaded → in_progress/initiated",
+          "gap_minutes": 5.333333333333333
+        },
+        {
+          "at": "2020-11-21T10:49:00Z",
+          "time": "2020-11-21T10:49:00Z",
+          "timestamp": "2020-11-21T10:49:00Z",
+          "stage": "in_progress",
+          "status": "in_progress",
+          "substatus": "marketplace_document_uploaded",
+          "prev_status": "in_progress",
+          "prev_substatus": "initiated",
+          "transition": "in_progress/initiated → in_progress/marketplace_document_uploaded",
+          "gap_minutes": 0.25
+        },
+        {
+          "at": "2021-01-28T08:38:32Z",
+          "time": "2021-01-28T08:38:32Z",
+          "timestamp": "2021-01-28T08:38:32Z",
+          "stage": "applied",
+          "status": "applied",
+          "substatus": "applied",
+          "prev_status": "in_progress",
+          "prev_substatus": "marketplace_document_uploaded",
+          "transition": "in_progress/marketplace_document_uploaded → applied/applied",
+          "gap_minutes": 97789.53333333334
+        },
+        {
+          "at": "2021-01-28T08:38:36Z",
+          "time": "2021-01-28T08:38:36Z",
+          "timestamp": "2021-01-28T08:38:36Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "approved",
+          "prev_status": "applied",
+          "prev_substatus": "applied",
+          "transition": "applied/applied → approved_for_submission/approved",
+          "gap_minutes": 0.06666666666666667
+        },
+        {
+          "at": "2021-01-28T08:39:11Z",
+          "time": "2021-01-28T08:39:11Z",
+          "timestamp": "2021-01-28T08:39:11Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "offer_selected",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "approved",
+          "transition": "approved_for_submission/approved → approved_for_submission/offer_selected",
+          "gap_minutes": 0.5833333333333334
+        },
+        {
+          "at": "2021-01-28T08:39:44Z",
+          "time": "2021-01-28T08:39:44Z",
+          "timestamp": "2021-01-28T08:39:44Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "personal_kyc_updated",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "offer_selected",
+          "transition": "approved_for_submission/offer_selected → approved_for_submission/personal_kyc_updated",
+          "gap_minutes": 0.55
+        },
+        {
+          "at": "2021-02-02T09:43:13Z",
+          "time": "2021-02-02T09:43:13Z",
+          "timestamp": "2021-02-02T09:43:13Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "offer_selected",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "personal_kyc_updated",
+          "transition": "approved_for_submission/personal_kyc_updated → approved_for_submission/offer_selected",
+          "gap_minutes": 7263.483333333334
+        },
+        {
+          "at": "2021-02-02T09:43:18Z",
+          "time": "2021-02-02T09:43:18Z",
+          "timestamp": "2021-02-02T09:43:18Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "personal_kyc_updated",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "offer_selected",
+          "transition": "approved_for_submission/offer_selected → approved_for_submission/personal_kyc_updated",
+          "gap_minutes": 0.08333333333333333
+        },
+        {
+          "at": "2021-02-19T10:03:09Z",
+          "time": "2021-02-19T10:03:09Z",
+          "timestamp": "2021-02-19T10:03:09Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "offer_selected",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "personal_kyc_updated",
+          "transition": "approved_for_submission/personal_kyc_updated → approved_for_submission/offer_selected",
+          "gap_minutes": 24499.85
+        },
+        {
+          "at": "2021-02-19T10:03:13Z",
+          "time": "2021-02-19T10:03:13Z",
+          "timestamp": "2021-02-19T10:03:13Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "personal_kyc_updated",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "offer_selected",
+          "transition": "approved_for_submission/offer_selected → approved_for_submission/personal_kyc_updated",
+          "gap_minutes": 0.06666666666666667
+        },
+        {
+          "at": "2021-02-19T10:32:25Z",
+          "time": "2021-02-19T10:32:25Z",
+          "timestamp": "2021-02-19T10:32:25Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "cheque_uploaded",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "personal_kyc_updated",
+          "transition": "approved_for_submission/personal_kyc_updated → approved_for_submission/cheque_uploaded",
+          "gap_minutes": 29.2
+        },
+        {
+          "at": "2021-02-19T10:32:27Z",
+          "time": "2021-02-19T10:32:27Z",
+          "timestamp": "2021-02-19T10:32:27Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "bank_details_updated",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "cheque_uploaded",
+          "transition": "approved_for_submission/cheque_uploaded → approved_for_submission/bank_details_updated",
+          "gap_minutes": 0.03333333333333333
+        },
+        {
+          "at": "2021-02-19T10:34:43Z",
+          "time": "2021-02-19T10:34:43Z",
+          "timestamp": "2021-02-19T10:34:43Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "document_upload_in_progress",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "bank_details_updated",
+          "transition": "approved_for_submission/bank_details_updated → approved_for_submission/document_upload_in_progress",
+          "gap_minutes": 2.2666666666666666
+        },
+        {
+          "at": "2021-02-19T10:34:59Z",
+          "time": "2021-02-19T10:34:59Z",
+          "timestamp": "2021-02-19T10:34:59Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "document_uploaded",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "document_upload_in_progress",
+          "transition": "approved_for_submission/document_upload_in_progress → approved_for_submission/document_uploaded",
+          "gap_minutes": 0.26666666666666666
+        },
+        {
+          "at": "2021-02-19T10:35:05Z",
+          "time": "2021-02-19T10:35:05Z",
+          "timestamp": "2021-02-19T10:35:05Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "nach_downloaded",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "document_uploaded",
+          "transition": "approved_for_submission/document_uploaded → approved_for_submission/nach_downloaded",
+          "gap_minutes": 0.1
+        },
+        {
+          "at": "2021-02-19T10:35:26Z",
+          "time": "2021-02-19T10:35:26Z",
+          "timestamp": "2021-02-19T10:35:26Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "nach_uploaded",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "nach_downloaded",
+          "transition": "approved_for_submission/nach_downloaded → approved_for_submission/nach_uploaded",
+          "gap_minutes": 0.35
+        },
+        {
+          "at": "2021-03-05T08:00:35Z",
+          "time": "2021-03-05T08:00:35Z",
+          "timestamp": "2021-03-05T08:00:35Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "offer_selected",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "nach_uploaded",
+          "transition": "approved_for_submission/nach_uploaded → approved_for_submission/offer_selected",
+          "gap_minutes": 20005.15
+        },
+        {
+          "at": "2021-03-05T08:00:40Z",
+          "time": "2021-03-05T08:00:40Z",
+          "timestamp": "2021-03-05T08:00:40Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "personal_kyc_updated",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "offer_selected",
+          "transition": "approved_for_submission/offer_selected → approved_for_submission/personal_kyc_updated",
+          "gap_minutes": 0.08333333333333333
+        },
+        {
+          "at": "2021-03-05T08:06:35Z",
+          "time": "2021-03-05T08:06:35Z",
+          "timestamp": "2021-03-05T08:06:35Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "cheque_uploaded",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "personal_kyc_updated",
+          "transition": "approved_for_submission/personal_kyc_updated → approved_for_submission/cheque_uploaded",
+          "gap_minutes": 5.916666666666667
+        },
+        {
+          "at": "2021-03-05T08:06:39Z",
+          "time": "2021-03-05T08:06:39Z",
+          "timestamp": "2021-03-05T08:06:39Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "bank_details_updated",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "cheque_uploaded",
+          "transition": "approved_for_submission/cheque_uploaded → approved_for_submission/bank_details_updated",
+          "gap_minutes": 0.06666666666666667
+        },
+        {
+          "at": "2021-03-05T08:07:43Z",
+          "time": "2021-03-05T08:07:43Z",
+          "timestamp": "2021-03-05T08:07:43Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "offer_selected",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "bank_details_updated",
+          "transition": "approved_for_submission/bank_details_updated → approved_for_submission/offer_selected",
+          "gap_minutes": 1.0666666666666667
+        },
+        {
+          "at": "2021-03-05T08:07:45Z",
+          "time": "2021-03-05T08:07:45Z",
+          "timestamp": "2021-03-05T08:07:45Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "personal_kyc_updated",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "offer_selected",
+          "transition": "approved_for_submission/offer_selected → approved_for_submission/personal_kyc_updated",
+          "gap_minutes": 0.03333333333333333
+        },
+        {
+          "at": "2021-03-05T08:07:47Z",
+          "time": "2021-03-05T08:07:47Z",
+          "timestamp": "2021-03-05T08:07:47Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "bank_details_updated",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "personal_kyc_updated",
+          "transition": "approved_for_submission/personal_kyc_updated → approved_for_submission/bank_details_updated",
+          "gap_minutes": 0.03333333333333333
+        },
+        {
+          "at": "2021-03-05T08:07:56Z",
+          "time": "2021-03-05T08:07:56Z",
+          "timestamp": "2021-03-05T08:07:56Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "document_upload_in_progress",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "bank_details_updated",
+          "transition": "approved_for_submission/bank_details_updated → approved_for_submission/document_upload_in_progress",
+          "gap_minutes": 0.15
+        },
+        {
+          "at": "2021-03-05T08:17:03Z",
+          "time": "2021-03-05T08:17:03Z",
+          "timestamp": "2021-03-05T08:17:03Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "offer_selected",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "document_upload_in_progress",
+          "transition": "approved_for_submission/document_upload_in_progress → approved_for_submission/offer_selected",
+          "gap_minutes": 9.116666666666667
+        },
+        {
+          "at": "2021-03-05T08:17:07Z",
+          "time": "2021-03-05T08:17:07Z",
+          "timestamp": "2021-03-05T08:17:07Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "personal_kyc_updated",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "offer_selected",
+          "transition": "approved_for_submission/offer_selected → approved_for_submission/personal_kyc_updated",
+          "gap_minutes": 0.06666666666666667
+        },
+        {
+          "at": "2021-03-05T08:17:10Z",
+          "time": "2021-03-05T08:17:10Z",
+          "timestamp": "2021-03-05T08:17:10Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "bank_details_updated",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "personal_kyc_updated",
+          "transition": "approved_for_submission/personal_kyc_updated → approved_for_submission/bank_details_updated",
+          "gap_minutes": 0.05
+        },
+        {
+          "at": "2021-03-05T08:17:18Z",
+          "time": "2021-03-05T08:17:18Z",
+          "timestamp": "2021-03-05T08:17:18Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "document_uploaded",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "bank_details_updated",
+          "transition": "approved_for_submission/bank_details_updated → approved_for_submission/document_uploaded",
+          "gap_minutes": 0.13333333333333333
+        },
+        {
+          "at": "2021-03-05T08:17:22Z",
+          "time": "2021-03-05T08:17:22Z",
+          "timestamp": "2021-03-05T08:17:22Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "nach_downloaded",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "document_uploaded",
+          "transition": "approved_for_submission/document_uploaded → approved_for_submission/nach_downloaded",
+          "gap_minutes": 0.06666666666666667
+        },
+        {
+          "at": "2021-03-05T08:19:00Z",
+          "time": "2021-03-05T08:19:00Z",
+          "timestamp": "2021-03-05T08:19:00Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "nach_uploaded",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "nach_downloaded",
+          "transition": "approved_for_submission/nach_downloaded → approved_for_submission/nach_uploaded",
+          "gap_minutes": 1.6333333333333333
+        },
+        {
+          "at": "2021-03-05T08:19:14Z",
+          "time": "2021-03-05T08:19:14Z",
+          "timestamp": "2021-03-05T08:19:14Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "ready_for_ops",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "nach_uploaded",
+          "transition": "approved_for_submission/nach_uploaded → approved_for_submission/ready_for_ops",
+          "gap_minutes": 0.23333333333333334
+        },
+        {
+          "at": "2021-04-07T14:03:49Z",
+          "time": "2021-04-07T14:03:49Z",
+          "timestamp": "2021-04-07T14:03:49Z",
+          "stage": "approved_for_submission",
+          "status": "approved_for_submission",
+          "substatus": "nbfc_approved",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "ready_for_ops",
+          "transition": "approved_for_submission/ready_for_ops → approved_for_submission/nbfc_approved",
+          "gap_minutes": 47864.583333333336
+        },
+        {
+          "at": "2021-04-08T05:12:55Z",
+          "time": "2021-04-08T05:12:55Z",
+          "timestamp": "2021-04-08T05:12:55Z",
+          "stage": "ops_approved",
+          "status": "ops_approved",
+          "substatus": "ops_approved",
+          "prev_status": "approved_for_submission",
+          "prev_substatus": "nbfc_approved",
+          "transition": "approved_for_submission/nbfc_approved → ops_approved/ops_approved",
+          "gap_minutes": 909.1
+        }
+      ],
+      "bottlenecks": [
+        {
+          "stage": "approved_for_submission/nbfc_approved → ops_approved/ops_approved",
+          "name": "approved_for_submission/nbfc_approved → ops_approved/ops_approved",
+          "from": "approved_for_submission/nbfc_approved",
+          "to": "ops_approved/ops_approved",
+          "duration_minutes": 909.1,
+          "start": "2021-04-07T14:03:49Z",
+          "end": "2021-04-08T05:12:55Z"
+        }
+      ]
+    },
+    "Freshdesk": {
+      "summary": "Freshdesk: 0 ticket(s) fetched (page=1, size=50)",
+      "tickets": [],
+      "meta": {
+        "page": 1,
+        "page_size": 50
+      }
+    }
+  },
+  "counts": {
+    "events_total": 43,
+    "slack_events": 0,
+    "tele_calls": 0,
+    "partner_comments": 5,
+    "onboarding_stages": 38,
+    "freshdesk_tickets": 0
+  }
+}
